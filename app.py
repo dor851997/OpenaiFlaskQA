@@ -20,11 +20,12 @@ def ask():
         # gptreply=gpt.gpt_reply(question)
         # # print(gptreply)
 
+
         #inser data into the postgresqlDB
         insert_data.insert(question=question,answer=current_time) #replace anwer to be gpt_replay after fix token error
         
         # return redirect(url_for("result",result=gptreply))
-        return redirect(url_for("result",result=current_time))
+        return redirect(url_for("result",result=question+'\n'+current_time))
     
     else:
         return render_template("ask.html")

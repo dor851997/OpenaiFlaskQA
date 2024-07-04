@@ -17,16 +17,16 @@ def insert(question, answer):
         cur.execute('INSERT INTO "qa_table"(question, answer) VALUES (%s, %s)', (question, answer))
         conn.commit()
 
-        # Fetch and print all rows from qa_table
-        cur.execute('SELECT * FROM "qa_table"')
-        rows = cur.fetchall()
+        # # Fetch and print all rows from qa_table
+        # cur.execute('SELECT * FROM "qa_table"')
+        # rows = cur.fetchall()
         
-        # print all rows of the qa_table
-        for row in rows:
-            print("ID : ", row[0])
-            print("Question : ", row[1])
-            print("Answer : ", row[2])
-            print("\n")
+        # # print all rows of the qa_table
+        # for row in rows:
+        #     print("ID : ", row[0])
+        #     print("Question : ", row[1])
+        #     print("Answer : ", row[2])
+        #     print("\n")
 
         print("INSERT query executed")
     
