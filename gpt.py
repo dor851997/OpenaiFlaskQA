@@ -1,12 +1,13 @@
 import openai
 import os
 
-openai.api_key=os.environ.get('OPENAI_API_KEY')
+# openai.api_key=os.environ.get('OPENAI_API_KEY')
+openai.api_key='sk-proj-EKz5Z5rdrPwLgri1eaiNT3BlbkFJ9wZJw18Ty8IGfJkxmzca'
 
 def gpt_reply(input_text):
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-16k",  # Use the appropriate model name
+            model="gpt-3.5-turbo",  # Use the appropriate model name
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": input_text}
