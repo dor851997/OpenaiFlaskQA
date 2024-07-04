@@ -1,32 +1,32 @@
 import psycopg2
 
+
 def insert(question, answer):
+    conn = None
     try:
         # Connect to the PostgreSQL database
         conn = psycopg2.connect(
             database="FlaskOpenAIQA",
             user="postgres",
             password="admin123",
-            host="localhost",
             port="5432"
         )
-
         cur = conn.cursor()
-
-        # Insert data into QA_table
-        cur.execute('INSERT INTO "QA_table"(question, answer) VALUES (%s, %s)', (question, answer))
+    
+        # Insert data into qa_table
+        cur.execute('INSERT INTO "qa_table"(question, answer) VALUES (%s, %s)', (question, answer))
         conn.commit()
 
-        # Fetch and print all rows from QA_table
-        cur.execute('SELECT * FROM "QA_table"')
+        # Fetch and print all rows from qa_table
+        cur.execute('SELECT * FROM "qa_table"')
         rows = cur.fetchall()
         
-        ## print all rows of the QA_table
-        # for row in rows:
-        #     print("ID : ", row[0])
-        #     print("Question : ", row[1])
-        #     print("Answer : ", row[2])
-        #     print("\n")
+        # print all rows of the qa_table
+        for row in rows:
+            print("ID : ", row[0])
+            print("Question : ", row[1])
+            print("Answer : ", row[2])
+            print("\n")
 
         print("INSERT query executed")
     
@@ -41,3 +41,5 @@ def insert(question, answer):
 # # Example usage
 # insert('What is AI?', 'AI stands for Artificial Intelligence.')
 # insert('What is Python?', 'Python is a programming language.')
+# if __name__ == "__main__":
+#     insert("Test Question", "Test Answer")
